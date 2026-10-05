@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/tutor.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="learning-room">
+    <header class="room-header">
+        <h2>Topic: <span id="current-topic">{{ topic }}</span></h2>
+        <button id="test-understanding-btn" class="btn-secondary">🎓 Test My Understanding</button>
+    </header>
+
+    <div class="chat-container" id="chat-container">
+        <!-- Messages will appear here -->
+        <div class="message assistant">
+            <div class="msg-content">Hello! I am your AI tutor for {{ topic }}. How would you like to start? You can speak or type your question.</div>
+            <div class="msg-actions">
+                <button class="listen-btn" data-text="Hello! I am your AI tutor for {{ topic }}. How would you like to start? You can speak or type your question.">🔊 Listen</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-area">
+        <button id="mic-btn" class="mic-btn" title="Click to speak">🎤</button>
+        <div class="text-input-container">
+            <input type="text" id="chat-input" placeholder="Type your question...">
+            <button id="send-btn" class="send-btn">Send</button>
+        </div>
+    </div>
+    <div id="status-text" class="status-text"></div>
+</div>
+
+<script>
+    const SESSION_ID = {{ session_id }};
+</script>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tutor.js') }}"></script>
+{% endblock %}

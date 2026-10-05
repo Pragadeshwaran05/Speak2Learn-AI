@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="topic-selection-container">
+    <div class="topic-card">
+        <h1>What do you want to learn?</h1>
+        <form id="start-learning-form">
+            <input type="text" id="topic-input" placeholder="Enter topic... (e.g. Binary Search)" required>
+            <button type="submit" class="btn-primary" id="start-btn">Start Learning</button>
+        </form>
+        <div id="error-message" class="error-text hidden"></div>
+        <div id="loading-spinner" class="hidden">Creating learning room...</div>
+    </div>
+</div>
+{% endblock %}
